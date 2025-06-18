@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
-  { name: "Home", href: "#hero" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", id: "hero" },
+  { name: "About", id: "about" },
+  { name: "Skills", id: "skills" },
+  { name: "Projects", id: "projects" },
+  { name: "Contact", id: "contact" },
 ];
 
 export const Navbar = () => {
@@ -17,41 +17,48 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10); // ✅ fixed from screenY to scrollY
+      setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+    setIsMenuOpen(false); // close mobile menu
+  };
+
   return (
     <nav
       className={cn(
-        "fixed w-full z-40 transition-all duration-300 bg-background shadow-md backdrop-blur-md", // ✅ Always solid background
+        "fixed w-full z-40 transition-all duration-300 bg-background shadow-md backdrop-blur-md",
         isScrolled ? "py-3" : "py-5"
       )}
     >
       <div className="container flex items-center justify-between">
-       <a
-  className="text-xl font-bold text-primary flex items-center"
-  href="#hero"
->
-  <span className="relative z-10">
-    <span className="text-glow text-foreground"> Reabal.cs </span>
-    {/* Removed "Portfolio" */}
-  </span>
-</a>
+        <button
+          className="text-xl font-bold text-primary flex items-center"
+          onClick={() => scrollToSection("hero")}
+        >
+          <span className="relative z-10">
+            <span className="text-glow text-foreground">Reabal.cs</span>
+          </span>
+        </button>
 
         {/* desktop nav */}
         <div className="hidden md:flex space-x-8">
           {navItems.map((item, key) => (
-            <a
+            <button
               key={key}
-              href={item.href}
+              onClick={() => scrollToSection(item.id)}
               className="text-foreground/80 hover:text-primary transition-colors duration-300"
             >
               {item.name}
-            </a>
+            </button>
           ))}
         </div>
 
@@ -76,14 +83,13 @@ export const Navbar = () => {
         >
           <div className="flex flex-col space-y-8 text-xl items-center">
             {navItems.map((item, key) => (
-              <a
+              <button
                 key={key}
-                href={item.href}
+                onClick={() => scrollToSection(item.id)}
                 className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}
-              </a>
+              </button>
             ))}
 
             <ThemeToggle />
