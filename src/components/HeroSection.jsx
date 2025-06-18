@@ -4,7 +4,7 @@ export const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-32 md:pt-40"
+      className="relative min-h-screen flex flex-col items-center justify-center pt-24 px-4 pt-32 md:pt-40"
 
     >
       <div className="container max-w-4xl mx-auto text-center z-10">

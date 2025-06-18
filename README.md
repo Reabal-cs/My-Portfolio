@@ -5,7 +5,7 @@ Includes dark mode, animated UI, and project showcases — perfect for frontend 
 
 ## 🚀 Live Demo
 
-🔗 [https://your-name.vercel.app](https://your-name.vercel.app)  
+🔗 (https://my-portfolio-sage-sigma-13.vercel.app/)
 > *(Replace this with your actual deployed link)*
 
 ---
