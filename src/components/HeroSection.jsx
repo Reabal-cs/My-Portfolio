@@ -1,11 +1,18 @@
 import { ArrowDown } from "lucide-react";
 
 export const HeroSection = () => {
+  // Add this function:
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center pt-24 px-4 pt-32 md:pt-40"
-
     >
       <div className="container max-w-4xl mx-auto text-center z-10">
         <div className="space-y-6">
@@ -22,13 +29,16 @@ export const HeroSection = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-             A passionate web developer with more than 1 year of experience building custom PHP/Laravel applications, certified in DevOps and CyberOps, and driven by clean code, security, and smart problem-solving.
+            A passionate web developer with more than 1 year of experience building custom PHP/Laravel applications, certified in DevOps and CyberOps, and driven by clean code, security, and smart problem-solving.
           </p>
 
           <div className="pt-4 opacity-0 animate-fade-in-delay-4">
-            <a href="#projects" className="cosmic-button">
+            <button
+              className="cosmic-button"
+              onClick={() => scrollToSection("projects")}
+            >
               View My Work
-            </a>
+            </button>
           </div>
         </div>
       </div>
