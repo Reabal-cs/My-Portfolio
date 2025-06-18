@@ -32,15 +32,15 @@ export const Navbar = () => {
       )}
     >
       <div className="container flex items-center justify-between">
-        <a
-          className="text-xl font-bold text-primary flex items-center"
-          href="#hero"
-        >
-          <span className="relative z-10">
-            <span className="text-glow text-foreground"> Reabal.cs </span>{" "}
-            Portfolio
-          </span>
-        </a>
+       <a
+  className="text-xl font-bold text-primary flex items-center"
+  href="#hero"
+>
+  <span className="relative z-10">
+    <span className="text-glow text-foreground"> Reabal.cs </span>
+    {/* Removed "Portfolio" */}
+  </span>
+</a>
 
         {/* desktop nav */}
         <div className="hidden md:flex space-x-8">
